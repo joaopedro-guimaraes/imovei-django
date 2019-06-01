@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h1 class="mt-2">Cadastro de imóvel</h1>
+<hr class="mt-0">
+<div class="row justify-content-center">
+<div class="col-10">
+
+<div class="card my-4">
+<div class="card-body">
+    <form action="" method="POST" novalidate>
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="form-group col-md-3 mb-0">
+        {{ form.operacao|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-3 mb-0">
+        {{ form.finalidade|as_crispy_field }}
+        </div>
+    </div>
+
+    <hr>
+    <h5 class="mb-0">Valores</h5>
+    <div class="form-row">
+        <div class="form-group col-md-3 mb-0">
+        {{ form.valor_condominio|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-3 mb-0">
+        {{ form.valor_iptu|as_crispy_field }}
+        </div>
+    </div>
+
+    <hr>
+    <h5 class="mb-0">Garagem</h5>
+    <div class="form-row">
+        <div class="form-group col-md-3 mb-0">
+        {{ form.garagem|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-3 mb-0">
+        {{ form.tipo_garagem|as_crispy_field }}
+        </div>
+    </div>
+
+    <hr>
+    <h5 class="mb-0">Cômodos</h5>
+    <div class="form-row">
+        <div class="form-group col-md-3 mb-0">
+        {{ form.dormitorios|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-3 mb-0">
+        {{ form.sendo_suite|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-3 mb-0">
+        {{ form.banheiros|as_crispy_field }}
+        </div>
+    </div>
+
+    <hr>
+    <h5 class="mb-0">Construção</h5>
+    <div class="form-row">
+        <div class="form-group col-md-3 mb-0">
+        {{ form.face|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-3 mb-0">
+        {{ form.area_terreno|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-3 mb-0">
+        {{ form.area_construida|as_crispy_field }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3 mb-0">
+        {{ form.frente|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-3 mb-0">
+        {{ form.fundo|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-3 mb-0">
+        {{ form.esquerda|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-3 mb-0">
+        {{ form.direita|as_crispy_field }}
+        </div>
+    </div>
+
+    <hr>
+    <h5 class="mb-0">Endereço</h5>
+    <div class="form-row">
+        <div class="form-group col-md-3 mb-0">
+            {{ form.cep|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-3 mb-0">
+            {{ form.estado|as_crispy_field }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12 mb-0">
+            {{ form.rua|as_crispy_field }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-2 mb-0">
+            {{ form.numero|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-5 mb-0">
+            {{ form.bairro|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-5 mb-0">
+            {{ form.cidade|as_crispy_field }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12 mb-0">
+            {{ form.complemento|as_crispy_field }}
+        </div>
+    </div>
+
+    <button class="btn btn-success" type="submit">Salvar</button>
+    <a class="btn btn-primary" href="{% url 'imoveis:lista_imoveis' %}">Lista</a>
+    </form>
+</div>
+</div>
+
+</div>
+</div>
+{% endblock content %}

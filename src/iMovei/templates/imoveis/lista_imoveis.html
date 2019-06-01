@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2>Imóveis</h2>
+<hr>
+<div class="row justify-content-center">
+    <div class="col-10">
+
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Digite aqui sua busca" aria-label="Busca"
+                name="busca">
+            <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Ir</button>
+            <a class="btn btn-primary" href="{% url 'imoveis:lista_imoveis' %}">Limpar busca</a>
+        </form>
+
+        <div class="card my-2">
+            <div class="card-body">
+                {% for imovel in imoveis %}
+                <div class="card my-2">
+                    <div class="card-body">
+                        <h5>{{ imovel }}</h5>
+                        <a class="btn btn-outline-primary btn-sm" href="{% url 'imoveis:atualizar_imoveis' imovel.id %}">Detalhar / Editar</a>
+                        <a class="btn btn-danger btn-sm" href="{% url 'imoveis:excluir_imoveis' imovel.id %}">Excluir</a>
+                    </div>
+                </div>
+                {% endfor %}
+                <a class="btn btn-primary" href="{% url 'imoveis:cadastro_imoveis' %}">Cadastro</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock content %}

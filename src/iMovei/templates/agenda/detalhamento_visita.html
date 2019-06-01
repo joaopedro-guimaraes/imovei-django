@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2>Detalhamento</h2>
+<hr>
+<div class="row justify-content-center">
+    <div class="col-10">
+        <div class="card my-2">
+            <div class="card-body">
+                <h5>Visita: {{ visita.id }}</h5>
+                <p>Data: {{ visita.data_visita }}</p>
+                <p>Horário: {{ visita.hora_visita }}</p>
+                <hr>
+                <h5>Imóvel: {{ visita.imovel.id }}</h5>
+                <p>{{ visita.imovel.rua }}, {{ visita.imovel.numero }}</p>
+                <p>Bairro {{ visita.imovel.bairro }}</p>
+                <p>{{ visita.imovel.cidade }}, {{ visita.imovel.estado }}</p>
+                <a href="{% url 'imoveis:atualizar_imoveis' visita.imovel.id %}">Ver mais</a>
+                <hr>
+                <h5>Cliente: {{ visita.cliente.nome }}</h5>
+                <p>Contato: {{ visita.cliente.telefone }}</p>
+                <a href="{% url 'clientes:atualizar_clientes' visita.cliente.id %}">Ver mais</a>
+            </div>
+        </div>
+        <a class="btn btn-outline-primary" href="{% url 'agenda:lista_visitas' %}">Voltar</a>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2>Visitas</h2>
+<hr>
+<div class="row justify-content-center">
+    <div class="col-10">
+        <div class="card my-2">
+            <div class="card-body">
+                {% for visita in visitas %}
+                <div class="card my-2">
+                    <div class="card-body">
+                        <h5>Visita: {{ visita.id }}</h5>
+                        <p>Data: {{ visita.data_visita }}</p>
+                        <p>Horário: {{ visita.hora_visita }}</p>
+                        <a class="btn btn-outline-primary btn-sm" href="{% url 'agenda:atualizar_visita' visita.id %}">Editar</a>
+                        <a class="btn btn-outline-primary btn-sm" href="{% url 'agenda:detalhamento_visita' visita.id %}">Detalhar</a>
+                    </div>
+                </div>
+                {% endfor %}
+                <a class="btn btn-primary" href="{% url 'agenda:cadastro_visita' %}">Cadastro</a> 
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
