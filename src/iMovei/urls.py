@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 from iMovei.core import views
 from iMovei.imoveis import urls as imoveis_urls
@@ -34,4 +36,4 @@ urlpatterns = [
     path('clientes/', include(clientes_urls, namespace='clientes')),
     path('imoveis/', include(imoveis_urls, namespace='imoveis')),
     path('agenda/', include(agenda_urls, namespace='agenda'))
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -5,7 +5,8 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<h2>Detalhamento</h2>
+<div class="container">
+<h1>Detalhamento</h1>
 <hr>
 <div class="row justify-content-center">
     <div class="col-10">
@@ -28,5 +29,6 @@
         </div>
         <a class="btn btn-outline-primary" href="{% url 'agenda:lista_visitas' %}">Voltar</a>
     </div>
+</div>
 </div>
 {% endblock content %}

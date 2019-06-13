@@ -3,6 +3,7 @@
 {% load static %}
 
 {% block content %}
+<div class="container">
   <h2 class="mb-2">Atenção! Deseja excluir o cliente {{ cliente }} (CPF: {{ cliente.cpf }}) ?</h2>
 
   <form action="" method="POST">
@@ -10,4 +11,5 @@
     <button class="btn btn-success" type="submit">Confirmar</button>
     <a class="btn btn-danger" href="{% url 'clientes:lista_clientes' %}">Cancelar</a>
   </form>
+</div>
 {% endblock content %}
